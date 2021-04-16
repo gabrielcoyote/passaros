@@ -76,6 +76,8 @@ flutter:
    - arquivos/Imagem/fundodois.png
    - arquivos/Imagem/logo.png
    - arquivos/Fontes/Oswald-Bold.ttf
+   - arquivos/Fontes/BebasNeue-Regular.ttf
+   - arquivos/Fontes/Righteous-Regular.ttf
    - arquivos/Fontes/LibreFranklin-Regular.ttf
    - arquivos/Fontes/Baskervville-Regular.otf
 

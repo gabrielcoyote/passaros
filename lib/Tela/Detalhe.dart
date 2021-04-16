@@ -17,10 +17,10 @@ class Detalhe extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Color.fromARGB(255, 53, 144, 26),
           title: Text(passaro.nome, style: TextStyle(
-              fontFamily: 'Oswald',
-              fontSize: 20,
+              fontFamily: 'Righteous',
+              fontSize: 24,
               fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255, 48, 48, 54)
+              color: Color.fromARGB(255, 0, 0, 0)
           ),),
         ),
         body : userDetails()
@@ -51,16 +51,6 @@ class Detalhe extends StatelessWidget {
     child: Column(
       children: <Widget>[
         Container(
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(0,10, 0, 0),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  _imagem(passaro.imagem),
-                ]),
-          ),
-        ),
-        Container(
           height: 40,
           child: Padding(
             padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
@@ -71,12 +61,19 @@ class Detalhe extends StatelessWidget {
                   padding: EdgeInsets.fromLTRB(15, 15, 0, 0),
                   child: Container(
                       width: 300,
-                      child: Text(passaro.NC ,textAlign: TextAlign.start, style: TextStyle(
-                          fontFamily: 'Baskervville-Regular',
-                          fontSize: 18,
-                          color: Color.fromARGB(255, 48, 48, 54)
+                      child: Row(
+                        children: <Widget>[
+                          Text("Nome Cientifico:", style: new TextStyle(fontSize: 15.0,
+                              fontFamily: 'Oswald',
+                              fontWeight: FontWeight.normal,
+                              color: Color.fromARGB(255, 48, 48, 54)),),
+                          Spacer(),
+                          Text(passaro.NC, style: new TextStyle(fontSize: 15.0,
+                              fontFamily: 'Oswald',
+                              fontWeight: FontWeight.normal,
+                              color: Color.fromARGB(255, 48, 48, 54)),),
+                        ],
                       ),
-                      )
                   ),
                 ),
               ],
@@ -94,12 +91,19 @@ class Detalhe extends StatelessWidget {
                   padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
                   child: Container(
                       width: 300,
-                      child: Text(passaro.familia ,textAlign: TextAlign.start, style: TextStyle(
-                          fontFamily: 'Baskervville-Regular',
-                          fontSize: 18,
-                          color: Color.fromARGB(255, 48, 48, 54)
-                      ),
-                      )
+                    child: Row(
+                      children: <Widget>[
+                        Text("Familia:", style: new TextStyle(fontSize: 15.0,
+                            fontFamily: 'Oswald',
+                            fontWeight: FontWeight.normal,
+                            color: Color.fromARGB(255, 48, 48, 54)),),
+                        Spacer(),
+                        Text(passaro.familia, style: new TextStyle(fontSize: 15.0,
+                            fontFamily: 'Oswald',
+                            fontWeight: FontWeight.normal,
+                            color: Color.fromARGB(255, 48, 48, 54)),),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -117,12 +121,19 @@ class Detalhe extends StatelessWidget {
                   padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
                   child: Container(
                       width: 300,
-                      child: Text(passaro.peso ,textAlign: TextAlign.start, style: TextStyle(
-                          fontFamily: 'Baskervville-Regular',
-                          fontSize: 18,
-                          color: Color.fromARGB(255, 48, 48, 54)
-                      ),
-                      )
+                    child: Row(
+                      children: <Widget>[
+                        Text("Peso:", style: new TextStyle(fontSize: 15.0,
+                            fontFamily: 'Oswald',
+                            fontWeight: FontWeight.normal,
+                            color: Color.fromARGB(255, 48, 48, 54)),),
+                        Spacer(),
+                        Text(passaro.peso, style: new TextStyle(fontSize: 15.0,
+                            fontFamily: 'Oswald',
+                            fontWeight: FontWeight.normal,
+                            color: Color.fromARGB(255, 48, 48, 54)),),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -140,12 +151,19 @@ class Detalhe extends StatelessWidget {
                   padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
                   child: Container(
                       width: 300,
-                      child: Text(passaro.tamanho ,textAlign: TextAlign.start, style: TextStyle(
-                          fontFamily: 'Baskervville-Regular',
-                          fontSize: 18,
-                          color: Color.fromARGB(255, 48, 48, 54)
-                      ),
-                      )
+                    child: Row(
+                      children: <Widget>[
+                        Text("Comprimento:", style: new TextStyle(fontSize: 15.0,
+                            fontFamily: 'Oswald',
+                            fontWeight: FontWeight.normal,
+                            color: Color.fromARGB(255, 48, 48, 54)),),
+                        Spacer(),
+                        Text(passaro.tamanho, style: new TextStyle(fontSize: 15.0,
+                            fontFamily: 'Oswald',
+                            fontWeight: FontWeight.normal,
+                            color: Color.fromARGB(255, 48, 48, 54)),),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -153,20 +171,20 @@ class Detalhe extends StatelessWidget {
           ),
         ),
         Container(
-          height: 230,
+          height: 400,
           child: Padding(
             padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.fromLTRB(15, 5, 10, 0),
+                  padding: EdgeInsets.fromLTRB(15, 15, 10, 0),
                   child: Container(
                       width: 400,
                       child: Text(passaro.descricao,textAlign: TextAlign.start, style: TextStyle(
                           fontFamily: 'Oswald',
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal,
                           color: Color.fromARGB(255, 48, 48, 54)
                       ),
                       )

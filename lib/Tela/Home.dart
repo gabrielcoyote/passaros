@@ -1,6 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../Model/CustomSearchDelegate.dart';
-import '../Model/Passaro.dart';
+import 'package:passaros/Model/CustomSearchDelegate.dart';
+import 'package:passaros/Model/Passaro.dart';
 import 'Detalhe.dart';
 
 
@@ -18,9 +19,9 @@ class _HomeState extends State<Home> { // criar variaveis
 
   String _resultado = "";
 
-
   @override
-  Widget build(BuildContext context) { // inicia o codigo
+  Widget build(BuildContext context) {
+    // inicia o codigo
     return Scaffold(
         appBar: AppBar( // menu superior
           iconTheme: IconThemeData(
@@ -36,6 +37,7 @@ class _HomeState extends State<Home> { // criar variaveis
           actions: <Widget>[
             IconButton( // chama um icon
               icon: Icon(Icons.search),
+              color: Color.fromARGB(255, 7, 7, 7),
               onPressed: () async { // ação de click
                 String res = await  showSearch(context: context, delegate: CustomSearchDelegate());
                 setState(() {
@@ -64,23 +66,21 @@ class _HomeState extends State<Home> { // criar variaveis
   _imagem(String img) { // parametros da imagem
     return Image.asset(
       img,
-      width: 110, height: 120,
-
-
+      fit: BoxFit.cover,
     );
   }
 
 
   _body() { // declarando os itens na lista
     List<Passaro> passaros = [
-      Passaro("Papagaio", "arquivos/Imagem/papagaio.png","Amazona",
-          "Psittacidae","240 g","28 – 33 cm"
-      ,"São conhecidos pela sua grande habilidade vocal, alegria e destreza com"
-              " os pés. São leais e conhecidos por serem boas companhias. Alguns "
-              "dizem que criar um deles é como ter um filho de dois anos, mas que"
-              " pode chegar aos cinquenta. Entretanto, algumas espécies são agressivas"
-              " (principalmente na época do acasalamento) e exigem mais atenção do que o "
-              "necessário a um animal de estimação comum, como um gato ou um cachorro. São "
+      Passaro("Papagaio verdadeiro", "arquivos/Imagem/papagaio.png","Amazona aestiva",
+          "Psittacidae","280 – 510 g","33 – 38 cm","São conhecidos pela sua grande"
+              " habilidade vocal, alegria e destreza com"" os pés. São leais e "
+              "conhecidos por serem boas companhias. Alguns ""dizem que criar um"
+              " deles é como ter um filho de dois anos, mas que"" pode chegar aos"
+              " cinquenta. Entretanto, algumas espécies são agressivas"" (principalmente"
+              " na época do acasalamento) e exigem mais atenção do que o ""necessário"
+              " a um animal de estimação comum, como um gato ou um cachorro. São "
               "aves muito inteligentes e precisam de atenção diária para mantê-los mentalmente"
               " saudávéis, além de precisarem de atividades estimulantes para mantê-los ativos."),
 
@@ -166,7 +166,7 @@ class _HomeState extends State<Home> { // criar variaveis
           "Thraupidae","38 g","18 cm"
           ,"Pode ser encontrado em cerrados, caatingas, campos de altitude, "
               "campos sujos, jardins e acima da linha de florestas"
-          "Vive solitário ou aos pares, pousado em arbustos baixos, com frequência"
+              "Vive solitário ou aos pares, pousado em arbustos baixos, com frequência"
               " em áreas bastante abertas. Junta-se a bandos mistos eventualmente."
               " Pousa no topo de pequenas árvores para cantar e olhar."),
 
@@ -241,7 +241,7 @@ class _HomeState extends State<Home> { // criar variaveis
               " tipo de batimento repetitivo constitui o “cinzelar”, usado para"
               " procura de alimentos ou para construção de cavidades para nidificação (Sick 1997)."),
 
-      Passaro("gavião asa de telha","arquivos/Imagem/Gaviao.png","Parabuteo unicinctus",
+      Passaro("Gavião asa de telha","arquivos/Imagem/Gaviao.png","Parabuteo unicinctus",
           "Accipitridae","701 - 1029 g","46 - 59 cm"
           ,"Enquanto a maioria das aves de rapina seja solitária, apenas se reunindo"
               " para reprodução e migração, o gavião-asa-de-telha caça em grupos"
@@ -270,8 +270,8 @@ class _HomeState extends State<Home> { // criar variaveis
 
     return ListView.builder( // buider funciona como o scrow para rolar a tela
       itemCount: passaros.length,
-      padding: EdgeInsets.all(5),
-      itemExtent: 150,
+      padding: EdgeInsets.all(0),
+      itemExtent: 500,
       itemBuilder: (BuildContext context, int index) {
         return _itemView(passaros, index);
 
@@ -282,82 +282,72 @@ class _HomeState extends State<Home> { // criar variaveis
   _itemView(List<Passaro> passaros, int index) { // alimentação da lista
     Passaro passaro = passaros[index];
 
-      return  GestureDetector(  onTap: () { // metodo especifico para click
-        Navigator.push(context,
-            MaterialPageRoute(
-                builder: (context) => Detalhe(passaros[index])));
-      },
-          child: Card( // criação do card
-            borderOnForeground: true,
-            elevation: 7,
-            color: Color.fromARGB(255, 175, 247, 156),
-            child: Container(
-              height: 150.0,
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    height: 100.0,
-                    width: 0.0,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(45),
-                            topLeft: Radius.circular(45)
-                        )
-                    ),
-                  ),
-                  Container(
-                    height: 130,
-                    width: 100,
-                    child: Padding(
-                      padding: EdgeInsets.fromLTRB(5,0, 0, 0),
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            _imagem(passaro.imagem),
-                          ]),
-                    ),
-                  ),
-                  Container(
+    return  GestureDetector(  onTap: () { // metodo especifico para click
+      Navigator.push(context,
+          MaterialPageRoute(
+              builder: (context) => Detalhe(passaros[index])));
+    },
+      child: Card(
 
-                    height: 100,
-                    child: Padding(
-                      padding: EdgeInsets.fromLTRB(10, 2, 0, 0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                            child: Container(
-                                width: 200,
-                                child: Text(passaro.nome ,textAlign: TextAlign.start, style: TextStyle(
-                                    fontFamily: 'Oswald',
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color.fromARGB(255, 48, 48, 54)
-                                ),
-                                )
+        color: Color.fromARGB(190, 55, 219, 15),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(top: 2.0, bottom: 2.0),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(height: 20),
+                      ClipRRect(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Color.fromARGB(190, 55, 219, 15),
+                              width: 0,
                             ),
+                            borderRadius: BorderRadius.circular(150),
+                            color: Colors.black),
+                           child: _imagem(passaro.imagem),
                           ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0, 21, 0, 0),
-                            child: Container(
-                                width: 220,
-                                child: IconButton(
-                                  icon: Icon(Icons.play_arrow_rounded),
-                                  alignment: Alignment.bottomRight ,
-                                  color: Color.fromARGB(255, 1, 1, 1),
-                                )
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  )
-                ],
+                        borderRadius: BorderRadius.circular(150),
+                        ),
+                      SizedBox(height: 10),
+                    ]),
               ),
-            ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0, bottom: 0.0),
+                child: Row(children: <Widget>[
+                  Text(passaro.nome ,textAlign: TextAlign.start, style: TextStyle(
+                      fontFamily: 'Righteous',
+                      fontSize: 32,
+                      fontWeight: FontWeight.normal,
+                      color: Color.fromARGB(255, 0, 0, 0)
+                  ),),
+                  Spacer(),
+                ]),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0, bottom: 0.0),
+                child: Row(
+                  children: <Widget>[
+                    Text(passaro.NC,textAlign: TextAlign.start,
+                      style: new TextStyle(
+                          fontSize: 20.0,
+                          fontFamily: 'Righteous',
+                          fontWeight: FontWeight.normal,
+                          color: Color.fromARGB(255, 0, 0, 0)),),
+                    Spacer(),
+                    Icon(Icons.play_arrow_sharp, size: 35,),
+                  ],
+                ),
+              )
+            ],
           ),
-      );
+        ),
+      ),
+    );
 
 
 
