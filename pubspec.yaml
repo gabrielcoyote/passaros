@@ -57,7 +57,8 @@ flutter:
    - arquivos/Imagem/fundo.png
    - arquivos/Imagem/papagaio.png
    - arquivos/Imagem/joao.png
-   - arquivos/Imagem/coleiro.png
+   - arquivos/Imagem/Abelha.png
+   - arquivos/Imagem/PapaCapim.png
    - arquivos/Imagem/beijaflor.png
    - arquivos/Imagem/gaivota.png
    - arquivos/Imagem/Canario.png
@@ -75,9 +76,10 @@ flutter:
    - arquivos/Imagem/Gralha.png
    - arquivos/Imagem/fundodois.png
    - arquivos/Imagem/logo.png
-   - arquivos/Fontes/Oswald-Bold.ttf
    - arquivos/Fontes/BebasNeue-Regular.ttf
+   - arquivos/Fontes/CormorantGaramond-Medium.ttf
    - arquivos/Fontes/Righteous-Regular.ttf
+   - arquivos/Fontes/Arvo-Bold.ttf
    - arquivos/Fontes/LibreFranklin-Regular.ttf
    - arquivos/Fontes/Baskervville-Regular.otf
 
